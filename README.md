@@ -29,8 +29,8 @@ TypeScript forces us to write better, cleaner code which makes the code predicta
 
 ## Installing TypeScript
 
-`npm install -g typescript` : This installs TypeScript globally.
-`tsc -v` : Version of TypeScript install on the machine.
+- `npm install -g typescript` : This installs TypeScript globally.
+- `tsc -v` : Version of TypeScript install on the machine.
 
 ## Hello, World!
 
@@ -76,8 +76,8 @@ let endsWithC = (<string>message).endsWith("c");
 
 ```typescript
 let message; // type any
-message = "abc"
-let endsWithC = (message as string).
+message = "abc";
+let endsWithC = (message as string).endsWith("f");
 ```
 
 ```typescript
@@ -320,7 +320,7 @@ fullName(avenger2);
 
 ## Classes
 
-Groups variables and functions that are highly related. This is done to maintain <b>Cohesion Principle<b>.
+Groups variables and functions that are highly related. This is done to maintain <b>Cohesion Principle<b>: Things that are related should be part of one unit.
 
 ### constructor
 
@@ -342,6 +342,8 @@ class User {
 let user1 = new User("noobmaster69");
 user1.greet();
 ```
+
+> <b>RULE:</b> Once you make a parameter optional, all the parameters on the right of that parameter should also be optional.
 
 ## Access modifiers
 
