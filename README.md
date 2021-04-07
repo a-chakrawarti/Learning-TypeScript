@@ -78,6 +78,44 @@ let name: string = undefined;
 let age: number = null;
 ```
 
+### Arrays
+
+```typescript
+let fruits = ["lemon", "apple", "orange"];
+
+fruits.push("jackfruit");
+fruits.push(25); // Error as TS's Type inference detects fruits as an array of string.
+fruits[0] = 96; // Error
+```
+
+- If we intend to support multiple type, this could be done
+
+```typescript
+let numStrings: Array<number | string> = [];
+
+numStrings.push(10);
+numStrings.push("Apple");
+console.log(numStrings);
+```
+
+### Objects
+
+- Type of a property in an object can't be changed once defined.
+- Once we define the object we can't add additional properties to the object.
+- If we want to re-declare the variable, it has to be of the same structure with same properties, same type of properties and only value of those properties can be changed/updated.
+
+```typescript
+let myObj = {
+  name: 'Anonymous'
+  age: 69
+  profession: 'Rtd. Cononel'
+}
+
+myObj.age = 32
+myObj.name = 007 // Errors, octal type
+myObj.skill = ['sniper', 'strategist'] // Error: skill doesn't exists
+```
+
 ### Tuples
 
 Fixed number of values, different types and order has to be maintained.
@@ -111,6 +149,7 @@ function area(radius: number): void {
 
 - If unsure what variable type is, use `any` type. Example data from API or dynamic user input.
 - Most capable type in TS. It encompasses values of every possible type and doesn't do any checking before accessing its methods or property.
+- Use with caution and can be used in certain condition.
 - Useful while migrating from JS to TS.
 
 ```typescript

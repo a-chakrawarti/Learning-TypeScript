@@ -138,3 +138,24 @@ var Administrator = /** @class */ (function (_super) {
 var admin = new Administrator('noobmaster69');
 admin.greet();
 admin.kickAvenger('Thor');
+// Arrays
+var fruits = ["lemon", "apple", "orange"];
+fruits.push("jackfruit");
+// fruits.push(25); // Error as TS's Type inference detects fruits as an array of string.
+// fruits[0] = 32; // Error
+var numStrings = [];
+numStrings.push(10);
+numStrings.push('Apple');
+// numStrings.push(false)
+console.log(numStrings);
+console.log(fruits);
+// Objects
+var myObj = {
+    name: 'Anonymous',
+    age: 69,
+    profession: 'Rtd. Cononel'
+};
+myObj.age = 32;
+//   myObj.name = 007 Error, octal type :D
+myObj.skill = ['sniper', 'strategist'];
+console.log(myObj);
