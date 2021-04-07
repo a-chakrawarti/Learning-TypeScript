@@ -90,7 +90,22 @@ let characterOne: [string, number] = ["Goku", 9000];
 
 ### Enum
 
+- Stores bunch of numbers. Cannot modify.
+- Restricted to numbers only.
 - Enum values begin with a value 0.
+
+```typescript
+enum CONSTANTS {
+  pi = 3.14,
+  e = 2.72,
+}
+
+function area(radius: number): void {
+  console.log(
+    `Area of a circle with radius ${radius} is ${2 * CONSTANTS.pi * radius}`
+  );
+}
+```
 
 ### Any
 
@@ -138,8 +153,12 @@ Error: Type 'boolean' is not assignable to type 'number'.
 
 ### Union of types
 
+- We can use <b>Type Aliases</b> to not repeat common union of types in the code base. That is reduces code duplication.
+
 ```typescript
-let multiType: number | boolean;
+type NumOrBool = number | boolean;
+
+let multiType: NumOrBool;
 multiType = 100;
 multiType = false;
 multiType = "Hello"; // will throw an error
@@ -207,6 +226,13 @@ interface Person {
   firstName: string;
   lastName?: string;
 }
+
+// We can use Type Aliases as well
+
+type PersonWithTypes = {
+  firstName: string;
+  lastName?: string;
+};
 
 function fullName(person: Person) {
   console.log(`${person.firstName} ${person.lastName}`);

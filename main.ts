@@ -13,7 +13,7 @@ I am learning ${language} v${version}`
 
 console.log(sentence)
 
-// Homogenous array declaration
+// Homogeneous array declaration
 
 let listOne: number[] = [1,2,3]
 let listTwo: Array<number> = [4,5,6]
@@ -32,6 +32,17 @@ enum Color {Red, Green, Blue}
 
 let c: Color = Color.Green;
 console.log(c);
+
+enum CONSTANTS {
+    pi = 3.14,
+    e = 2.72
+  }
+  
+function area(radius: number): void {
+    console.log(`Area of a circle with radius ${radius} is ${(2* CONSTANTS.pi* radius).toFixed(3)}`)
+}
+
+area(20)
 
 // Any type
 
@@ -70,10 +81,12 @@ let anotherNum = 20;
 console.log(anotherNum)
 
 // Union of Types
-
-let multiType: number | boolean;
+type NumOrBool = number | boolean;
+let multiType: NumOrBool;
 multiType = 100;
 multiType = false;
+
+console.log('MultiType with Aliases: ', multiType)
 
 // functions
 
@@ -110,8 +123,15 @@ interface Person {
     firstName: string;
     lastName?: string;
 }
+
+// Type Aliases with Object
+
+type PersonWithTypes = {
+    firstName: string;
+    lastName?: string;
+  };
   
-function fullName(person: Person) {
+function fullName(person: PersonWithTypes) {
     if (person.lastName) {
         console.log(`${person.firstName} ${person.lastName}`);
     } else {
