@@ -212,7 +212,7 @@ let myObj = {
   
   myObj.age = 32
 //   myObj.name = 007 Error, octal type :D
-myObj.skill = ['sniper', 'strategist']
+// myObj.skill = ['sniper', 'strategist']
 
   console.log(myObj)
 

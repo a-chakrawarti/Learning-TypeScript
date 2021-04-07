@@ -17,13 +17,13 @@
 
 ## Why TypeScript?
 
+TypeScript forces us to write better, cleaner code which makes the code predictable and less error prone.
+
 > In JS, when we access the value of an input element regardless of its input type, its always a string.
 
 - JS is dynamically typed and error only shows up in runtime when instantiated. TS adds type support to JS, and errors are caught while it is being typed and during the compilation.
 - Specifying type is completely optional in TS.
 - More time on coding, less time on debugging.
-
-- TS forces us to write better, cleaner and less error prone code.
 
 - TypeScript can't be executed by JavaScript environment like the browsers and NodeJS.
 
@@ -61,6 +61,24 @@ console.log(msg);
 - Checks whether the variable is declared in global scope, function scope or block-scoped.
 
 ## Types
+
+### Type Assertions
+
+1. Prefix the variable with angle brackets
+
+```typescript
+let message; // type any
+message = "abc";
+let endsWithC = (<string>message).endsWith("c");
+```
+
+2. as Type
+
+```typescript
+let message; // type any
+message = "abc"
+let endsWithC = (message as string).
+```
 
 ```typescript
 let name: string = "Anonymous";
@@ -258,12 +276,26 @@ totalCost(300, 180);
 
 ## Interface
 
-It is possible to specify an object as a Type in TypeScript.
+Interfaces are purely for declarations. It cannot include any implementation. We can only have signature of a function.
+
+- Pascal naming convention
+
+- It is possible to specify an object as a Type in TypeScript.
 
 ```typescript
 interface Person {
   firstName: string;
   lastName?: string;
+}
+
+// Using interface
+function fullName(person: Person) {
+  console.log(`${person.firstName} ${person.lastName}`);
+}
+
+// Inline-annotation, verbose
+function fullName(person: { firstName: string; lastName: string }) {
+  // ...
 }
 
 // We can use Type Aliases as well
@@ -272,10 +304,6 @@ type PersonWithTypes = {
   firstName: string;
   lastName?: string;
 };
-
-function fullName(person: Person) {
-  console.log(`${person.firstName} ${person.lastName}`);
-}
 
 let avenger1 = {
   firstName: "Wanda",
@@ -291,6 +319,12 @@ fullName(avenger2);
 ```
 
 ## Classes
+
+Groups variables and functions that are highly related. This is done to maintain <b>Cohesion Principle<b>.
+
+### constructor
+
+Every class can have a constructor which a method which is called when we create an instance of that class.
 
 ```typescript
 class User {
@@ -311,11 +345,16 @@ user1.greet();
 
 ## Access modifiers
 
-- By default, each class memember is `public`.
-- `private` can be accessed only within the same class. This way we can secure the class property.
+Access modifier is basically a keyword that can be applied to a member of a class to control its access from the outside.
+
+- By default, all class memembers are `public`.
+- `private` can be accessed only within class. This way we can secure the class property.
 - `protected` lets you access that property or method in the derived class.
 
 ### Reference
 
+- [Documentation](https://www.typescriptlang.org/docs/)
 - [Learn TypeScript in 50 minutes by Codevolution](https://www.youtube.com/watch?v=WBPrJSw7yQA)
+- [Access Modifier TypeScript](https://www.youtube.com/watch?v=QygRnETpBIg)
+- [Getters, Setters & Properties](https://www.youtube.com/watch?v=azCCiJJjKr4)
 - [TypeScript Course for Beginners 2021 - Learn TypeScript from Scratch!](https://www.youtube.com/watch?v=BwuLxPH8IDs)
